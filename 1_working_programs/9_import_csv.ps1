@@ -1,0 +1,1 @@
+﻿Import-Csv -Path ..\data\us-state-capitals.csv | Select-Object name,description
