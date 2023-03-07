@@ -1,0 +1,48 @@
+PS C:\Windows\system32> whoami
+winserv2\serviceacc1
+
+PS C:\Windows\system32> $Username = 'serviceacc2'
+
+PS C:\Windows\system32> $Password = '1Odyssey987'
+
+PS C:\Windows\system32> $pass = ConvertTo-SecureString -AsPlainText $Password -Force
+
+PS C:\Windows\system32> $Cred = New-Object System.Management.Automation.PSCredential -ArgumentList $Username,$pass
+
+PS C:\Windows\system32> Start-Process powershell.exe -Credential $Cred -NoNewWindow -ArgumentList "-noexit -command %windir%\system32\notepad.exe"
+
+PS C:\Windows\system32> Start-Process powershell.exe -Credential $Cred -NoNewWindow -ArgumentList "-noexit -command C:\Users\Public\helloworld.ps1"
+
+PS C:\Windows\system32> Start-Process powershell.exe -Credential $Cred -NoNewWindow -ArgumentList "-noexit -command C:\Users\Public\helloworld.ps1"
+
+PS C:\Windows\system32> 
+winserv2\serviceacc2
+
+
+    Directory: C:\Users\Public
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----         3/7/2023   3:13 AM                sample_programs
+
+
+    Directory: C:\Users\Public\sample_programs
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----         3/7/2023   3:13 AM              0 hello_world.txt
+
+
+PS C:\Users\Public\sample_programs>
+
+-------------------------------
+whoami
+cd \
+cd C:\Users\Public
+mkdir sample_programs
+cd sample_programs
+New-Item hello_world.txt
+Set-Content hello_world.txt "this is my first PowerShell Program"
+-------------------------------
